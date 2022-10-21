@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subject</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>Subject: {{subject}}</p>
+        <p>Location: {{location}}</p>
+        <p>Price: {{price}}</p>
+        <p>Spaces: {{spaces}}</p>
+        <button v-on:click="addToCart" :disabled="spaces === 0">
+                Add to Cart
+        </button>
+    </div>
+    <script type="text/javascript">
+        let webstore = new Vue({
+            el: "#app",
+            data: {
+                subject: "Math",
+                location: "London",
+                price: "£100",
+                spaces: 5
+            },
+            methods: {
+                addToCart: function(){
+                    if(this.spaces > 0){
+                        this.spaces--;
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
